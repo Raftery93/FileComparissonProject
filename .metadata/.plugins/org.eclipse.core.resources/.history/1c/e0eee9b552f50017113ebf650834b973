@@ -1,0 +1,29 @@
+
+public class Runner {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		new UI().show();
+
+	}
+
+
+
+
+
+
+
+
+//==================PLACE METHOD INTO RIGHT CLASS======================
+
+public int[] getMinHashSet(){
+	
+	Random r = new Random();
+	
+	int[] hashes = new int[size];
+	
+	for(int i= 0; i < size; i++){
+		hashes[i] = r.nextInt();
+	}
+}

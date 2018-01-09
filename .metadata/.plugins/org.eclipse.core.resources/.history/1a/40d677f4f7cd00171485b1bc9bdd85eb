@@ -1,0 +1,27 @@
+import java.util.Scanner;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
+
+public class UI {
+	
+	private Scanner s;
+	
+	BlockingQueue queue = new LinkedBlockingQueue(100);//No idea where this goes
+	
+	while(keepMenuAlive){
+		
+		////get the file names
+		
+		Thread t1 = new Thread(new FileParser("ddsdc.txt", 3, queue));
+		
+		
+			
+		
+	}
+
+	public void show {
+		// TODO Auto-generated method stub
+		
+	}
+
+}}

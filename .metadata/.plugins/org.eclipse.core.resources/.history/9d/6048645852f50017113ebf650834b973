@@ -1,0 +1,15 @@
+
+public class Shingle {
+
+	private int docId;
+	private int shingleHashCode; //---->  concatString.hashCode();
+	
+	//params = .....   <--he did not specify
+	public Shingle(){
+		
+		
+	}
+	
+	//getters/setters
+	
+}

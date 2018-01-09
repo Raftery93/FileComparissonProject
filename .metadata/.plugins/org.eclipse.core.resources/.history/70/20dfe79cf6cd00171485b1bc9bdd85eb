@@ -1,0 +1,32 @@
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+
+public class FileParser implements Runnable {
+	
+	private int shingleSize;
+	private file f;
+	
+	
+	public FileParser(String file) throws Exception{
+		this.f = new File(file);
+	}
+	
+	public void run(){
+		BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(f)));
+	}
+	
+	String line = null;
+	
+	while((line = br.readLine()) != null){
+		
+		String[] words = line.split(".");
+		
+		for(int i = 0; i <shingle.Size;i++){
+			
+			//Convert string to an int
+			int shingle = 
+		}
+	}
+
+}

@@ -1,0 +1,11 @@
+
+public class FileParser implements Runnable {
+	
+	private file f;
+	
+	
+	public FileParser(String file) throws Exception{
+		
+	}
+
+}

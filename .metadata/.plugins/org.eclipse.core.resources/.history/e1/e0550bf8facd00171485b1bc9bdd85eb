@@ -1,0 +1,18 @@
+
+public class MinHasher {
+
+	private int[] hashes;
+	
+	public MinHasher(int[] hashes, Shingle s){
+		this.hashes = hashes;
+	}
+	
+	public void run(){
+		
+		for(int i =0; i<hashes.length;i++){
+			int hash = s.getHashCode()^hashes[i];
+			
+		}
+	}
+	
+}

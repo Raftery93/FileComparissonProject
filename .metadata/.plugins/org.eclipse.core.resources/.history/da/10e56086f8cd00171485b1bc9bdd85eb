@@ -1,0 +1,15 @@
+
+public class Shingle {
+
+	private int doctd;
+	private int shingleHashCode;
+	
+	//params = .....
+	public Shingle(){
+		
+		
+	}
+	
+	//getters/setters
+	
+}

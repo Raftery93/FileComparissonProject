@@ -1,0 +1,31 @@
+
+public class MinHasher implements Runnable {
+
+	private int[] hashes;
+	
+	public MinHasher(int[] hashes, Shingle s){
+		this.hashes = hashes;
+	}
+	
+	public void run(Shingle s){
+		
+		
+		for(int i =0; i<hashes.length;i++){
+			int hash = s.getShingleHashCode()^hashes[i];
+			
+		}
+		
+		
+		
+		
+		
+		
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

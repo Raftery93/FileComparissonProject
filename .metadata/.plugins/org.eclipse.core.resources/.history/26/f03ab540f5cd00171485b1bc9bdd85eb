@@ -1,0 +1,17 @@
+import java.util.Scanner;
+
+public class UI {
+	
+	private Scanner s;
+	
+	while(keepMenuAlive){
+		
+		
+	}
+
+	public void show() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

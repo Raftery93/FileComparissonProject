@@ -1,0 +1,15 @@
+
+public class FileParser implements Runnable {
+	
+	private file f;
+	
+	
+	public FileParser(String file) throws Exception{
+		this.f = new File(file);
+	}
+	
+	public void run(){
+		BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(f)));
+	}
+
+}

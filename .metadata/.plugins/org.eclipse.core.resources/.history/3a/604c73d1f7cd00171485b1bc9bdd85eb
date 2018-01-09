@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+public class UI {
+	
+	private Scanner s;
+	
+	while(keepMenuAlive){
+		
+		////get the file names
+		
+		Thread t1 = new Thread(new FileParser("ddsdc.txt"));
+		
+	}
+
+	public void show() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}}

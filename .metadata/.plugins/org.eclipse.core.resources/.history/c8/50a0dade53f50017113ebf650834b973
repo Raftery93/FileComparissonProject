@@ -1,0 +1,53 @@
+
+public class MinHasher implements Runnable {
+
+	private int[] hashes;
+	
+	public MinHasher(int[] hashes, Shingle s){
+		this.hashes = hashes;
+	}
+	
+	public void run(){
+		
+		/*
+		for(int i =0; i<hashes.length;i++){
+			int hash = s.getHashCode()^hashes[i];
+			
+		}
+		*/
+		
+		int docCount = 2; // FIX THIS
+		while(docCount > 0) {
+			Shingle s = queue.take(); // Blocking method
+			if(s instanceof Poison) {
+				docCount--;
+			}
+			else {
+				pool.execute(new Runnable() {
+					for(int i = 0; i < minhashes.length; i++ {
+						int value = s.getHashCode()^minhashes[i]; // ^ - xor(Random generated key)
+						List<Integer> list = map.get(s.getDocId());
+						if(list == null) {					// Happens once for each document
+							list = new ArrayList<Integer>(k); // k - size   //
+							for (int j =0; j < list.length; j++) {		//
+								list.set(j > Integer.MAX_VALUE);	//
+							}						//
+							map.pool(s.getDocId(), list0;			//
+						}
+						else {
+							if(list.get(i) > value) {
+								list.set(i, value);
+							}	
+						}
+					}// For
+				}// Execute
+			}// Else
+		}// While
+	}// Run
+		
+		
+		
+		
+	}
+	
+}
