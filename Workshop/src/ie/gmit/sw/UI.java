@@ -8,14 +8,14 @@ import javax.swing.text.html.parser.DocumentParser;
  * 
  * UI represents a user interface
  * 
- * @author connor raftery
+ * @author Conor Raftery
  * 
  * */
 public class UI {
 	
 	Scanner s = new Scanner(System.in);
 	
-	//BlockingQueue queue = new LinkedBlockingQueue(100);//No idea where this goes
+	//BlockingQueue queue = new LinkedBlockingQueue(100);
 	public void show() {
 		
 		BlockingQueue<Shingle>queue = new LinkedBlockingQueue<>();
@@ -33,7 +33,7 @@ public class UI {
 			System.out.println("Please enter the name of second file:\n");
 			String file2 = s.next();
 			
-			System.out.println("Please enter the size of Shingle size:\n");
+			System.out.println("Please enter the size of Shingle:\n");
 			int shingleSize = s.nextInt();
 			
 			//Thread t1 = new Thread(new FileParser(queue, file1, shingleSize), "A");

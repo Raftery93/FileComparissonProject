@@ -46,6 +46,16 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
+
+/**
+ * 
+ * 
+ * Takes values from Blocking Queue and hases them to create the minimum hash values,
+ * which are then stored on a map.
+ * 
+ * 
+ * @author Conor Raftery
+ */
 public class MinHasher implements Runnable {
 
 	private BlockingQueue<Shingle> q;
@@ -54,10 +64,28 @@ public class MinHasher implements Runnable {
 	private Map<Integer, List<Integer>> map = new ConcurrentHashMap<Integer, List<Integer>>();
 	private ExecutorService pool;
 
+	/**
+	 * Gets map from with List
+	 * 
+	 * @return map new {@link Map} object
+	 *
+	 * */
 	public Map<Integer, List<Integer>> getMap() {
 		return map;
 	}
 
+	/**
+	 * Constructor with fields
+	 * 
+	 * @param q
+	 *            A BlockingQueue of Shingle Objects
+	 * @param k
+	 *            The amount of minHashes
+	 *            
+	 * @param poolSize
+	 *            The size of the thread pool
+	 *
+	 * */
 	public MinHasher(BlockingQueue<Shingle> q, int k, int poolSize) {
 		this.q = q;
 		this.k = k;
@@ -65,14 +93,26 @@ public class MinHasher implements Runnable {
 		init();
 	}
 
+	/**
+	 * Gets {@link Random} minhash
+	 * 
+	 *
+	 *
+	 * */
 	public void init() {
-		Random random = new Random();
+		Random random = new Random();//Code adapted from method in Runner class
 		minhashes = new int[k];
 		for (int i = 0; i < minhashes.length; i++) {
 			minhashes[i] = random.nextInt();
 		}
 	}
-
+	
+	/**
+	 * Creates 2 lists for comparing
+	 * 
+	 * 
+	 *
+	 * */
 	public void run() {
 		List<Integer> alist = new ArrayList<>();
 		List<Integer> blist = new ArrayList<>();
@@ -81,9 +121,9 @@ public class MinHasher implements Runnable {
 		while (docCount > 0) {
 			try {
 				Shingle s = q.take();
-				// works like poison if its not finished keeps going
+				//like poison, if its not finished it keeps going
 				if (s instanceof Poison ) {
-					//System.out.println("ddddoooccccccccccccccer");
+					//System.out.println("s is instance of poison");
 					docCount--;
 
 				} else {
@@ -91,7 +131,7 @@ public class MinHasher implements Runnable {
 
 						@Override
 						public void run() {
-							//System.out.println("IN 2nd run" + Thread.currentThread());
+							//System.out.println("Starting run" + Thread.currentThread());
 							//List<Integer> list = map.get(s.getDocId());
 							int minValue = Integer.MAX_VALUE;
 							for (int i = 0; i < k; i++) {
@@ -106,7 +146,7 @@ public class MinHasher implements Runnable {
 										minValue = value;
 									}
 								//}
-				//				System.out.println("INNNNNNNNNNNNNNNN");
+				//				System.out.println("In loop");
 							} // for
 							if(s.getDocId()==1){
 								alist.add(minValue);
@@ -114,7 +154,7 @@ public class MinHasher implements Runnable {
 								blist.add(minValue);
 
 							}
-			//				System.out.println("kkkkkeeeedd");
+			//				System.out.println("Out of loop");
 							//map.put(s.getDocId(), list);
 						}
 					});
@@ -126,7 +166,7 @@ public class MinHasher implements Runnable {
 			}
 
 		}
-		//System.out.println("BEFFORE JJAAAAAAAAAAC");
+		//System.out.println("Before Jaccard");
 		pool.shutdown();
 		try {
 			pool.awaitTermination(60, TimeUnit.SECONDS);
@@ -142,11 +182,11 @@ public class MinHasher implements Runnable {
 	//	System.out.println("DEBUG___" + isEmpty + "_____" + isEmpty1);
 		List<Integer> tempdata = map.get(1);
 		tempdata.retainAll(map.get(2));
-		float jacquared = (float) tempdata.size() / (alist.size() + blist.size() - (float) tempdata.size());
+		float jaccard = (float) tempdata.size() / (alist.size() + blist.size() - (float) tempdata.size());
 
-		// to get the percentage
+		//to get the percentage
 
-		System.out.format("J: %.2f", jacquared);
+		System.out.format("J: %.2f", jaccard);
 
 	}
 }

@@ -1,6 +1,13 @@
 package ie.gmit.sw;
 import java.util.Random;
 
+/**
+ * 
+ * Runner is used to run the UserInterace
+ * 
+ * @author Conor Raftery
+ * 
+ * */
 public class Runner {
 
 	public static void main(String[] args) {
@@ -11,7 +18,7 @@ public class Runner {
 	}
 
 
-//==================PLACE METHOD INTO RIGHT CLASS======================
+//==================PLACE METHOD INTO RIGHT CLASS, NOT USED======================
 
 	public int[] getMinHashSet(){
 		

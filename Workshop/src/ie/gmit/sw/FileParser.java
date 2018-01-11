@@ -9,9 +9,17 @@ import java.util.Deque;
 import java.util.LinkedList;
 import java.util.concurrent.BlockingQueue;
 
+/**
+ * 
+ * FileParser is used to generate shingles and add them to a BlockingQueue
+ * 
+ * @author Conor Raftery
+ * 
+ * */
+
 public class FileParser implements Runnable {
 
-	private File f; // used to be type File - he changed it to type string after
+	private File f; 
 					// writing Shingle Class
 	private BlockingQueue<Shingle> b;
 	private Deque<String> buffer = new LinkedList<>();
@@ -30,6 +38,13 @@ public class FileParser implements Runnable {
 		// run();
 		// getNextShingle();
 	}
+	
+	/**
+	 * Creates {@link Shingle} objects from the files within the threads 
+	 * 
+	 *
+	 *
+	 * */
 @Override
 	public void run() {
 		BufferedReader br = null;
@@ -68,12 +83,12 @@ public class FileParser implements Runnable {
 				}
 			}
 
-			/*
-			 * for(int i = 0; i <shingleSize;i++){
-			 * 
-			 * //Convert string to an int // int shingle =
-			 * makeShingleSizeStrings.toHashCode() }
-			 */
+			
+			 // for(int i = 0; i <shingleSize;i++){
+			  
+			  //Convert string to an int // int shingle =
+			 // makeShingleSizeStrings.toHashCode() }
+			 
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -97,6 +112,12 @@ public class FileParser implements Runnable {
 
 	}// run
 
+/**
+ * A loop which adds words to the buffer
+ * 
+ * 
+ *
+ * */
 	private void addWordsToBuffer(String[] words) {
 		for (String s : words) {
 			buffer.add(s);
@@ -118,8 +139,7 @@ public class FileParser implements Runnable {
 		while (counter < shingleSize) {
 			// System.out.println("in while");
 			if (buffer.peek() != null) {
-			//	System.out.println(buffer.peek() + " "+docId);// Kevin told me to add
-														// this to test shingles
+			//	System.out.println(buffer.peek() + " "+docId);
 				sb.append(buffer.poll());
 				counter++;
 			} else {
@@ -127,8 +147,8 @@ public class FileParser implements Runnable {
 			}
 		}
 
-		//System.out.println("\t hashcode:" + sb.toString().hashCode() + "...."+Thread.currentThread());// Kevin
-																				// told
+		//System.out.println("\t hashcode:" + sb.toString().hashCode() + "...."+Thread.currentThread());
+																				
 		
 		if (sb.length() > 0) {
 
@@ -145,6 +165,12 @@ public class FileParser implements Runnable {
 
 	} // Next shingle
 
+	/**
+	 * Flushes the buffer for next {@link Shingle}
+	 * 
+	 * 
+	 *
+	 * */
 	private void flushBuffer() throws InterruptedException {
 		while (buffer.size() > 0) {
 			Shingle s = getNextShingle();

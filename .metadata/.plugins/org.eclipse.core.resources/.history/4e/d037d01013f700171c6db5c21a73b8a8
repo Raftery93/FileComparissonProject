@@ -1,0 +1,26 @@
+package ie.gmit.sw;
+
+import java.util.Map;
+
+/**
+ * Used to represent words as hash codes
+ * 
+ * 
+ *@author Conor Raftery
+ * */
+public class Poison extends Shingle {
+
+
+	/**
+	 * Constructor with fields
+	 * 
+	 * 
+	 * */
+	public Poison(int docId, int shingleHashCode) {
+		super(docId, shingleHashCode);
+		
+	}
+	
+
+
+}

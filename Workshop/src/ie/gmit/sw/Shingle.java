@@ -1,5 +1,13 @@
 package ie.gmit.sw;
 
+
+/**
+ * 
+ * Used to generate Shingle Objects
+ * 
+ * @author Conor Raftery
+ * 
+ * */
 public class Shingle {
 
 	private int docId;
