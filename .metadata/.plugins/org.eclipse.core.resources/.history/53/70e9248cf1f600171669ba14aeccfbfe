@@ -1,0 +1,33 @@
+import Shingle;
+
+public class Poison extends Shingle {
+
+	private int docId;
+	private int i;
+	
+	public Poison(int docId, int i) {
+		super();
+		
+		this.docId = docId;
+		this.i = i;
+		
+		// TODO Auto-generated constructor stub
+	}
+
+	public int getDocId() {
+		return docId;
+	}
+
+	public void setDocId(int docId) {
+		this.docId = docId;
+	}
+
+	public int getI() {
+		return i;
+	}
+
+	public void setI(int i) {
+		this.i = i;
+	}
+
+}

@@ -1,0 +1,40 @@
+import java.util.Scanner;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
+
+import javax.swing.text.html.parser.DocumentParser;
+
+public class UI {
+	
+	Scanner s = new Scanner(System.in);
+	
+	//BlockingQueue queue = new LinkedBlockingQueue(100);//No idea where this goes
+	public void show() {
+		
+		BlockingQueue<Shingle>queue = null;
+		
+		System.out.println("1)New Test\n-1)exit/n");
+		 int keepMenuAlive = s.nextInt();
+		
+		while(keepMenuAlive!=-1){
+			
+			////get the file names
+			
+			System.out.println("Please enter the name of first file:\n");
+			String file1 = s.next();
+			
+			System.out.println("Please enter the name of first file:\n");
+			String file2 = s.next();
+			
+			Thread t1 = new Thread(new FileParser(file1, 3, queue));
+			Thread t2 = new Thread(new FileParser(file2, 3, queue));
+			//Thread t2 = new Thread((Runnable) new FileParser(f2, q, shingleSize, k), "T2");
+			
+			
+				
+			
+		}
+		
+	}
+
+}

@@ -1,0 +1,15 @@
+package ie.gmit.sw;
+
+public class Poison extends Shingle {
+
+	private int docId;
+	private int i;
+	public Poison(int docId, int shingleHashCode, int docId2, int i) {
+		super(docId, shingleHashCode);
+		docId = docId2;
+		this.i = i;
+	}
+	
+
+
+}

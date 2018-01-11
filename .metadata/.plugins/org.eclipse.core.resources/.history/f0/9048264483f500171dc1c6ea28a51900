@@ -1,0 +1,9 @@
+
+public class Poison extends Shingle {
+
+	public Poison(int docId, int i) {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+}
